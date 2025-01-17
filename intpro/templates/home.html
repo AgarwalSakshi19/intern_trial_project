@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoursesPro</title>
+</head>
+
+<body>
+    <h1>CoursesPro</h1>
+    <a href="{% url 'login' %}" class="login-button">Login</a>
+    <ul>
+        {% for course in courses %}
+        <li>
+            <h2>{{ course.name }}</h2>
+            <p><strong>Professor:</strong> {{ course.professor }}</p>
+            <p><strong>Description:</strong> {{ course.description }}</p>
+            <p><strong>Duration:</strong> {{ course.duration }}</p>
+            <form method="POST" action="{% url 'register_course' %}">
+                {% csrf_token %}
+                <input type="hidden" name="course_id" value="{{ course.id }}">
+                <button type="submit">Select</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

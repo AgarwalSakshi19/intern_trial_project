@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoursesPro - {{ title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #f4f4f4;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            width: 80%;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .sidebar ul li a:hover {
+            color: #007BFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>CoursesPro</h1>
+        <p>Welcome, {{ user.username }}</p>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'course_track' %}">Course Track</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            {% block content %}
+            <!-- Specific content goes here -->
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

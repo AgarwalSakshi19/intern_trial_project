@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="padding: 20px;">
+    <h2>Your Profile</h2>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>First Name:</strong> {{ user.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Mobile Number:</strong> {{ user.profile.mobile_number }}</p>
+    <a href="{% url 'edit_profile' %}"
+        style="display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px;">Edit
+        Profile</a>
+</div>
+{% endblock %}
